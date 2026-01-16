@@ -6,8 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -38,20 +36,4 @@ public class User {
     @Column(nullable = false)
     private boolean active = true;
 
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
-
-    @Column(nullable = false, updatable = false)
-    private String createdBy;
-
-    @Column
-    private LocalDateTime updatedAt;
-
-    @Column
-    private String updatedBy;
-
-    @PrePersist
-    protected void onCreate(){
-        this.createdAt = LocalDateTime.now();
-    }
 }
